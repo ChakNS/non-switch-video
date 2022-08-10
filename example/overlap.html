@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, viewport-fit=cover, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>non-switch-video</title>
+  </head>
+  <style>
+    #video {
+      object-fit: cover;
+    }
+    #button {
+      width: 100px;
+      height: 40px;
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #777;
+      cursor: pointer;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <video id="video1" width="800" height="550" poster="./poster.png"></video>
+    <!-- <video id="video2" width="800" height="550" poster="./poster.png"></video> -->
+    <button id="button">switch video</button>
+    <script src="../dist/index.global.js"></script>
+    <script>
+      const overlap = new OverlapVideo(video1);
+
+      let flag = true;
+      button.addEventListener("click", () => {
+        flag = !flag;
+        overlap.play(flag ? "./video1.mp4" : "./video2.mp4");
+      });
+    </script>
+  </body>
+</html>
